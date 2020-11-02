@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		0FF7008425501FF0005F3B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7008325501FF0005F3B26 /* AppDelegate.swift */; };
 		0FF7008625501FF0005F3B26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7008525501FF0005F3B26 /* SceneDelegate.swift */; };
-		0FF7008825501FF0005F3B26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7008725501FF0005F3B26 /* ViewController.swift */; };
+		0FF7008825501FF0005F3B26 /* StoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7008725501FF0005F3B26 /* StoryCollectionViewController.swift */; };
 		0FF7008B25501FF0005F3B26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF7008925501FF0005F3B26 /* Main.storyboard */; };
 		0FF7008D25501FF0005F3B26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF7008C25501FF0005F3B26 /* Assets.xcassets */; };
 		0FF7009025501FF0005F3B26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF7008E25501FF0005F3B26 /* LaunchScreen.storyboard */; };
+		0FF7009E25502257005F3B26 /* StoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7009D25502257005F3B26 /* StoriesResponse.swift */; };
+		0FF700A4255023FD005F3B26 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF700A3255023FD005F3B26 /* StoryCollectionViewCell.swift */; };
+		0FF700AA25503311005F3B26 /* URLSession+Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF700A925503311005F3B26 /* URLSession+Requests.swift */; };
+		0FF700B025504E36005F3B26 /* UIAlertController+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF700AF25504E36005F3B26 /* UIAlertController+Common.swift */; };
+		0FF700BC255066BA005F3B26 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FF700BE255066BA005F3B26 /* Localizable.strings */; };
+		0FF700C12550677A005F3B26 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF700C02550677A005F3B26 /* String+Localizable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0FF7008025501FF0005F3B26 /* Steller Viewer MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Steller Viewer MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF7008325501FF0005F3B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF7008525501FF0005F3B26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0FF7008725501FF0005F3B26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0FF7008725501FF0005F3B26 /* StoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewController.swift; sourceTree = "<group>"; };
 		0FF7008A25501FF0005F3B26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0FF7008C25501FF0005F3B26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FF7008F25501FF0005F3B26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FF7009125501FF0005F3B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FF7009D25502257005F3B26 /* StoriesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesResponse.swift; sourceTree = "<group>"; };
+		0FF700A3255023FD005F3B26 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		0FF700A925503311005F3B26 /* URLSession+Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Requests.swift"; sourceTree = "<group>"; };
+		0FF700AF25504E36005F3B26 /* UIAlertController+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Common.swift"; sourceTree = "<group>"; };
+		0FF700BD255066BA005F3B26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0FF700C02550677A005F3B26 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,53 @@
 		0FF7008225501FF0005F3B26 /* Steller Viewer MVC */ = {
 			isa = PBXGroup;
 			children = (
+				0FF700A8255032E1005F3B26 /* Extensions */,
+				0FF7009A25502242005F3B26 /* Model */,
+				0FF700A2255023DC005F3B26 /* View */,
+				0FF7009B25502247005F3B26 /* Controller */,
 				0FF7008325501FF0005F3B26 /* AppDelegate.swift */,
 				0FF7008525501FF0005F3B26 /* SceneDelegate.swift */,
-				0FF7008725501FF0005F3B26 /* ViewController.swift */,
 				0FF7008925501FF0005F3B26 /* Main.storyboard */,
 				0FF7008C25501FF0005F3B26 /* Assets.xcassets */,
 				0FF7008E25501FF0005F3B26 /* LaunchScreen.storyboard */,
+				0FF700BE255066BA005F3B26 /* Localizable.strings */,
 				0FF7009125501FF0005F3B26 /* Info.plist */,
 			);
 			path = "Steller Viewer MVC";
+			sourceTree = "<group>";
+		};
+		0FF7009A25502242005F3B26 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0FF7009D25502257005F3B26 /* StoriesResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0FF7009B25502247005F3B26 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0FF7008725501FF0005F3B26 /* StoryCollectionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0FF700A2255023DC005F3B26 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0FF700A3255023FD005F3B26 /* StoryCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0FF700A8255032E1005F3B26 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0FF700A925503311005F3B26 /* URLSession+Requests.swift */,
+				0FF700AF25504E36005F3B26 /* UIAlertController+Common.swift */,
+				0FF700C02550677A005F3B26 /* String+Localizable.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF7009025501FF0005F3B26 /* LaunchScreen.storyboard in Resources */,
+				0FF700BC255066BA005F3B26 /* Localizable.strings in Resources */,
 				0FF7008D25501FF0005F3B26 /* Assets.xcassets in Resources */,
 				0FF7008B25501FF0005F3B26 /* Main.storyboard in Resources */,
 			);
@@ -137,9 +188,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FF7008825501FF0005F3B26 /* ViewController.swift in Sources */,
+				0FF700A4255023FD005F3B26 /* StoryCollectionViewCell.swift in Sources */,
+				0FF700B025504E36005F3B26 /* UIAlertController+Common.swift in Sources */,
+				0FF7009E25502257005F3B26 /* StoriesResponse.swift in Sources */,
+				0FF700AA25503311005F3B26 /* URLSession+Requests.swift in Sources */,
+				0FF7008825501FF0005F3B26 /* StoryCollectionViewController.swift in Sources */,
 				0FF7008425501FF0005F3B26 /* AppDelegate.swift in Sources */,
 				0FF7008625501FF0005F3B26 /* SceneDelegate.swift in Sources */,
+				0FF700C12550677A005F3B26 /* String+Localizable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +216,14 @@
 				0FF7008F25501FF0005F3B26 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0FF700BE255066BA005F3B26 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0FF700BD255066BA005F3B26 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

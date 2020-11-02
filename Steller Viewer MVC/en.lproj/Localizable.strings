@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Steller Viewer MVC
+
+  Created by plech on 02/11/2020.
+  
+*/
+
+"general.error" = "Error";
+"general.ok" = "OK";
+
+"storyCollection.title" = "Steller Viewer";
+"storyCollection.error" = "There was a problem loading stories. Please try again later.";
