@@ -16,11 +16,17 @@ class StoryCollectionViewController: UIViewController {
     private static let cellAspectRatio = 1.87
     
     private var stories = [Story]()
+    private var imageCache = [URL: UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = "storyCollection.title".localized
         fetchStories()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        imageCache.removeAll()
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -35,11 +41,24 @@ extension StoryCollectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as? StoryCollectionViewCell else {
+        let story = stories[indexPath.row]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as? StoryCollectionViewCell,
+              let storyId = story.id else {
             return UICollectionViewCell()
         }
-        cell.nameLabel.text = stories[indexPath.row].user?.display_name
-        cell.likesLabel.text = stories[indexPath.row].likes?.count.map { "❤️ \($0)" }
+        cell.storyId = storyId
+        cell.nameLabel.text = story.user?.display_name
+        cell.likesLabel.text = story.likes?.count.map { "❤️ \($0)" }
+        cell.imageView.isHidden = true
+        if let url = story.cover_src.flatMap({ URL(string: $0) }) {
+            cell.activityIndicator.startAnimating()
+            cacheImage(for: url) { image in
+                guard cell.storyId == storyId else { return }
+                cell.imageView.image = image
+                cell.imageView.isHidden = false
+                cell.activityIndicator.stopAnimating()
+            }
+        }
         return cell
     }
 }
@@ -72,6 +91,22 @@ private extension StoryCollectionViewController {
             }
             self?.stories = response.data ?? []
             self?.collectionView.reloadData()
+        }
+    }
+    
+    func cacheImage(for url: URL, completion: @escaping (UIImage?) -> Void) {
+        if let image = imageCache[url] {
+            completion(image)
+            return
+        }
+        URLSession.shared.getAsData(url: url) { [weak self] (data, error) in
+            guard let data = data,
+                  let image = UIImage(data: data) else {
+                completion(nil)
+                return
+            }
+            self?.imageCache[url] = image
+            completion(image)
         }
     }
 }

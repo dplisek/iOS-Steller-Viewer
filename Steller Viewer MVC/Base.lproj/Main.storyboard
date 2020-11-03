@@ -67,10 +67,15 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MfN-jL-uiG">
                                                     <rect key="frame" x="0.0" y="0.0" width="146" height="266"/>
                                                 </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="N1t-Kd-0qD">
+                                                    <rect key="frame" x="63" y="137.5" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="N1t-Kd-0qD" firstAttribute="centerY" secondItem="Mbn-Eo-abz" secondAttribute="centerY" id="3f7-Hy-BV8"/>
                                                 <constraint firstAttribute="bottom" secondItem="A5g-XE-Vae" secondAttribute="bottom" id="9PU-0K-BKT"/>
                                                 <constraint firstItem="v8i-xk-Sne" firstAttribute="leading" secondItem="A5g-XE-Vae" secondAttribute="trailing" constant="8" symbolic="YES" id="Gi0-XR-C6j"/>
+                                                <constraint firstItem="N1t-Kd-0qD" firstAttribute="centerX" secondItem="Mbn-Eo-abz" secondAttribute="centerX" id="JoN-QC-gVA"/>
                                                 <constraint firstItem="A5g-XE-Vae" firstAttribute="leading" secondItem="Mbn-Eo-abz" secondAttribute="leading" id="L0M-zs-mgo"/>
                                                 <constraint firstAttribute="bottom" secondItem="v8i-xk-Sne" secondAttribute="bottom" id="Odi-Ec-xMV"/>
                                                 <constraint firstItem="v8i-xk-Sne" firstAttribute="top" secondItem="MfN-jL-uiG" secondAttribute="bottom" constant="8" symbolic="YES" id="asd-Ph-pAj"/>
@@ -81,6 +86,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="N1t-Kd-0qD" id="7vJ-H2-HRk"/>
                                             <outlet property="imageView" destination="MfN-jL-uiG" id="wps-7p-C79"/>
                                             <outlet property="likesLabel" destination="v8i-xk-Sne" id="l9e-fs-jw1"/>
                                             <outlet property="nameLabel" destination="A5g-XE-Vae" id="NfJ-iH-96N"/>
@@ -92,8 +98,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="4Ty-qM-pZE"/>
                                 </connections>
                             </collectionView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hYg-mU-xlW">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="hYg-mU-xlW">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
