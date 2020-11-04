@@ -8,7 +8,6 @@
 import UIKit
 
 class StoryCollectionViewController: UIViewController {
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -20,7 +19,7 @@ class StoryCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = "storyCollection.title".localized
+        title = "storyCollection.title".localized
         fetchStories()
     }
     
@@ -69,7 +68,7 @@ extension StoryCollectionViewController: UICollectionViewDelegateFlowLayout {
         guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else {
             return CGSize.zero
         }
-        let horizontalSpaces = CGFloat(StoryCollectionViewController.columnCount - 1) * layout.minimumInteritemSpacing
+        let horizontalSpaces = CGFloat(StoryCollectionViewController.columnCount + 1) * layout.minimumInteritemSpacing
         let availableWidth = collectionView.frame.width - horizontalSpaces
         let cellWidth = availableWidth / CGFloat(StoryCollectionViewController.columnCount)
         let cellHeight = cellWidth * CGFloat(StoryCollectionViewController.cellAspectRatio)

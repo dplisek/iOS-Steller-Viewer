@@ -19,6 +19,8 @@
 		0FF700B025504E36005F3B26 /* UIAlertController+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF700AF25504E36005F3B26 /* UIAlertController+Common.swift */; };
 		0FF700BC255066BA005F3B26 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FF700BE255066BA005F3B26 /* Localizable.strings */; };
 		0FF700C12550677A005F3B26 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF700C02550677A005F3B26 /* String+Localizable.swift */; };
+		0FF700CA25519EA4005F3B26 /* UIFont+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF700C925519EA4005F3B26 /* UIFont+Styles.swift */; };
+		0FF700CD2551A088005F3B26 /* UIColor+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF700CC2551A088005F3B26 /* UIColor+Styles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		0FF700AF25504E36005F3B26 /* UIAlertController+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Common.swift"; sourceTree = "<group>"; };
 		0FF700BD255066BA005F3B26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0FF700C02550677A005F3B26 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		0FF700C925519EA4005F3B26 /* UIFont+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Styles.swift"; sourceTree = "<group>"; };
+		0FF700CC2551A088005F3B26 /* UIColor+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Styles.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				0FF700A925503311005F3B26 /* URLSession+Requests.swift */,
 				0FF700AF25504E36005F3B26 /* UIAlertController+Common.swift */,
 				0FF700C02550677A005F3B26 /* String+Localizable.swift */,
+				0FF700C925519EA4005F3B26 /* UIFont+Styles.swift */,
+				0FF700CC2551A088005F3B26 /* UIColor+Styles.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -192,8 +198,10 @@
 				0FF700B025504E36005F3B26 /* UIAlertController+Common.swift in Sources */,
 				0FF7009E25502257005F3B26 /* StoriesResponse.swift in Sources */,
 				0FF700AA25503311005F3B26 /* URLSession+Requests.swift in Sources */,
+				0FF700CD2551A088005F3B26 /* UIColor+Styles.swift in Sources */,
 				0FF7008825501FF0005F3B26 /* StoryCollectionViewController.swift in Sources */,
 				0FF7008425501FF0005F3B26 /* AppDelegate.swift in Sources */,
+				0FF700CA25519EA4005F3B26 /* UIFont+Styles.swift in Sources */,
 				0FF7008625501FF0005F3B26 /* SceneDelegate.swift in Sources */,
 				0FF700C12550677A005F3B26 /* String+Localizable.swift in Sources */,
 			);

@@ -9,8 +9,18 @@ import UIKit
 
 class StoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var likesLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel! {
+        didSet {
+            nameLabel.font = .styleUser
+            nameLabel.textColor = .styleBlue
+        }
+    }
+    @IBOutlet weak var likesLabel: UILabel! {
+        didSet {
+            likesLabel.font = .styleUser
+            likesLabel.textColor = .styleDarkBlue
+        }
+    }
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var storyId: String?
