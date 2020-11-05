@@ -9,5 +9,5 @@
 "general.error" = "Error";
 "general.ok" = "OK";
 
-"storyCollection.title" = "Steller Viewer";
+"storyCollection.title" = "Stories";
 "storyCollection.error" = "There was a problem loading stories. Please try again later.";

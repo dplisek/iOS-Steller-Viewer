@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FAB3F8D2553068400280F74 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB3F8C2553068400280F74 /* StoryViewController.swift */; };
+		0FAB3F902553088E00280F74 /* StoryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB3F8F2553088E00280F74 /* StoryPageViewController.swift */; };
+		0FB4E8A5255458260019E000 /* StoryNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB4E8A4255458260019E000 /* StoryNavigationViewController.swift */; };
 		0FF7008425501FF0005F3B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7008325501FF0005F3B26 /* AppDelegate.swift */; };
 		0FF7008625501FF0005F3B26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7008525501FF0005F3B26 /* SceneDelegate.swift */; };
 		0FF7008825501FF0005F3B26 /* StoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7008725501FF0005F3B26 /* StoryCollectionViewController.swift */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FAB3F8C2553068400280F74 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
+		0FAB3F8F2553088E00280F74 /* StoryPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPageViewController.swift; sourceTree = "<group>"; };
+		0FB4E8A4255458260019E000 /* StoryNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryNavigationViewController.swift; sourceTree = "<group>"; };
 		0FF7008025501FF0005F3B26 /* Steller Viewer MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Steller Viewer MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF7008325501FF0005F3B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF7008525501FF0005F3B26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +104,10 @@
 		0FF7009B25502247005F3B26 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0FB4E8A4255458260019E000 /* StoryNavigationViewController.swift */,
 				0FF7008725501FF0005F3B26 /* StoryCollectionViewController.swift */,
+				0FAB3F8F2553088E00280F74 /* StoryPageViewController.swift */,
+				0FAB3F8C2553068400280F74 /* StoryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,13 +204,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF700A4255023FD005F3B26 /* StoryCollectionViewCell.swift in Sources */,
+				0FAB3F902553088E00280F74 /* StoryPageViewController.swift in Sources */,
 				0FF700B025504E36005F3B26 /* UIAlertController+Common.swift in Sources */,
 				0FF7009E25502257005F3B26 /* StoriesResponse.swift in Sources */,
 				0FF700AA25503311005F3B26 /* URLSession+Requests.swift in Sources */,
 				0FF700CD2551A088005F3B26 /* UIColor+Styles.swift in Sources */,
 				0FF7008825501FF0005F3B26 /* StoryCollectionViewController.swift in Sources */,
 				0FF7008425501FF0005F3B26 /* AppDelegate.swift in Sources */,
+				0FB4E8A5255458260019E000 /* StoryNavigationViewController.swift in Sources */,
 				0FF700CA25519EA4005F3B26 /* UIFont+Styles.swift in Sources */,
+				0FAB3F8D2553068400280F74 /* StoryViewController.swift in Sources */,
 				0FF7008625501FF0005F3B26 /* SceneDelegate.swift in Sources */,
 				0FF700C12550677A005F3B26 /* String+Localizable.swift in Sources */,
 			);

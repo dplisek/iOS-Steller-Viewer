@@ -7,8 +7,7 @@
 
 import UIKit
 
-class StoryCollectionViewController: UIViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
+class StoryCollectionViewController: UICollectionViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private static let columnCount = 2
@@ -27,19 +26,15 @@ class StoryCollectionViewController: UIViewController {
         super.didReceiveMemoryWarning()
         imageCache.removeAll()
     }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
 }
 
 // MARK: - UICollectionViewDataSource
-extension StoryCollectionViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension StoryCollectionViewController {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         stories.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let story = stories[indexPath.row]
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as? StoryCollectionViewCell,
               let storyId = story.id else {
@@ -76,13 +71,23 @@ extension StoryCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - Navigation
+extension StoryCollectionViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "StoryDetail",
+              let pageVC = segue.destination as? StoryPageViewController,
+              let cell = sender as? StoryCollectionViewCell,
+              let position = stories.firstIndex(where: { $0.id == cell.storyId }) else { return }
+        pageVC.stories = stories
+        pageVC.position = position
+    }
+}
+
 // MARK: - Private functions
 private extension StoryCollectionViewController {
     func fetchStories() {
-        collectionView.isHidden = true
         activityIndicator.startAnimating()
         URLSession.shared.get(StoriesResponse.self, url: URLSession.Endpoints.stories) { [weak self] (response, error) in
-            self?.collectionView.isHidden = false
             self?.activityIndicator.stopAnimating()
             guard let response = response else {
                 UIAlertController.presentSimpleAlert(on: self, title: "general.error".localized, message: error?.localizedDescription ?? "storyCollection.error".localized)

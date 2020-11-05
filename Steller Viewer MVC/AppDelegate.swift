@@ -17,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coloredAppearance.configureWithOpaqueBackground()
         coloredAppearance.backgroundColor = .styleDarkBlue
         coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
                
         UINavigationBar.appearance().standardAppearance = coloredAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+        UINavigationBar.appearance().tintColor = .white
         return true
     }
 
