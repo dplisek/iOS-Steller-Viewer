@@ -127,10 +127,11 @@
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2ft-Ij-ua5">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FJd-P6-wHL"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FJd-P6-wHL" firstAttribute="trailing" secondItem="nYz-lG-rSp" secondAttribute="trailing" id="3qB-aD-cjY"/>
                             <constraint firstItem="FJd-P6-wHL" firstAttribute="bottom" secondItem="nYz-lG-rSp" secondAttribute="bottom" id="5ZN-6f-zs0"/>
