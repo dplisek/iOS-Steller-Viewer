@@ -30,7 +30,7 @@
 		0FAB3F8C2553068400280F74 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		0FAB3F8F2553088E00280F74 /* StoryPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPageViewController.swift; sourceTree = "<group>"; };
 		0FB4E8A4255458260019E000 /* StoryNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryNavigationViewController.swift; sourceTree = "<group>"; };
-		0FF7008025501FF0005F3B26 /* Steller Viewer MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Steller Viewer MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FF7008025501FF0005F3B26 /* Steller Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Steller Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF7008325501FF0005F3B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF7008525501FF0005F3B26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0FF7008725501FF0005F3B26 /* StoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		0FF7007725501FF0005F3B26 = {
 			isa = PBXGroup;
 			children = (
-				0FF7008225501FF0005F3B26 /* Steller Viewer MVC */,
+				0FF7008225501FF0005F3B26 /* Steller Viewer */,
 				0FF7008125501FF0005F3B26 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,12 +70,12 @@
 		0FF7008125501FF0005F3B26 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0FF7008025501FF0005F3B26 /* Steller Viewer MVC.app */,
+				0FF7008025501FF0005F3B26 /* Steller Viewer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0FF7008225501FF0005F3B26 /* Steller Viewer MVC */ = {
+		0FF7008225501FF0005F3B26 /* Steller Viewer */ = {
 			isa = PBXGroup;
 			children = (
 				0FF700A8255032E1005F3B26 /* Extensions */,
@@ -90,7 +90,7 @@
 				0FF700BE255066BA005F3B26 /* Localizable.strings */,
 				0FF7009125501FF0005F3B26 /* Info.plist */,
 			);
-			path = "Steller Viewer MVC";
+			path = "Steller Viewer";
 			sourceTree = "<group>";
 		};
 		0FF7009A25502242005F3B26 /* Model */ = {
@@ -135,9 +135,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0FF7007F25501FF0005F3B26 /* Steller Viewer MVC */ = {
+		0FF7007F25501FF0005F3B26 /* Steller Viewer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0FF7009425501FF0005F3B26 /* Build configuration list for PBXNativeTarget "Steller Viewer MVC" */;
+			buildConfigurationList = 0FF7009425501FF0005F3B26 /* Build configuration list for PBXNativeTarget "Steller Viewer" */;
 			buildPhases = (
 				0FF7007C25501FF0005F3B26 /* Sources */,
 				0FF7007D25501FF0005F3B26 /* Frameworks */,
@@ -147,9 +147,9 @@
 			);
 			dependencies = (
 			);
-			name = "Steller Viewer MVC";
-			productName = "Steller Viewer MVC";
-			productReference = 0FF7008025501FF0005F3B26 /* Steller Viewer MVC.app */;
+			name = "Steller Viewer";
+			productName = "Steller Viewer";
+			productReference = 0FF7008025501FF0005F3B26 /* Steller Viewer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -166,7 +166,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0FF7007B25501FF0005F3B26 /* Build configuration list for PBXProject "Steller Viewer MVC" */;
+			buildConfigurationList = 0FF7007B25501FF0005F3B26 /* Build configuration list for PBXProject "Steller Viewer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -179,7 +179,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0FF7007F25501FF0005F3B26 /* Steller Viewer MVC */,
+				0FF7007F25501FF0005F3B26 /* Steller Viewer */,
 			);
 		};
 /* End PBXProject section */
@@ -371,13 +371,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Steller Viewer MVC/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Steller Viewer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.plech.Steller-Viewer-MVC";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.plech.steller-viewer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -390,13 +390,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Steller Viewer MVC/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Steller Viewer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.plech.Steller-Viewer-MVC";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.plech.steller-viewer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -406,7 +406,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0FF7007B25501FF0005F3B26 /* Build configuration list for PBXProject "Steller Viewer MVC" */ = {
+		0FF7007B25501FF0005F3B26 /* Build configuration list for PBXProject "Steller Viewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0FF7009225501FF0005F3B26 /* Debug */,
@@ -415,7 +415,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0FF7009425501FF0005F3B26 /* Build configuration list for PBXNativeTarget "Steller Viewer MVC" */ = {
+		0FF7009425501FF0005F3B26 /* Build configuration list for PBXNativeTarget "Steller Viewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0FF7009525501FF0005F3B26 /* Debug */,
