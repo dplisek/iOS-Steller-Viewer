@@ -11,7 +11,7 @@ extension String {
     var localized: String {
         let result = NSLocalizedString(self, comment: self)
         if result == self {
-            print("Warning: Missing localization for \"\(self)\".")
+            assertionFailure("Warning: Missing localization for \"\(self)\".")
         }
         return result
     }

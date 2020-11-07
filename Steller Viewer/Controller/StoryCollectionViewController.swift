@@ -38,6 +38,7 @@ extension StoryCollectionViewController {
         let story = stories[indexPath.row]
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as? StoryCollectionViewCell,
               let storyId = story.id else {
+            assertionFailure("Missing cell definition.")
             return UICollectionViewCell()
         }
         cell.storyId = storyId
@@ -61,6 +62,7 @@ extension StoryCollectionViewController {
 extension StoryCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else {
+            assertionFailure("Bad layout definition.")
             return CGSize.zero
         }
         let horizontalSpaces = CGFloat(StoryCollectionViewController.columnCount + 1) * layout.minimumInteritemSpacing
@@ -77,7 +79,10 @@ extension StoryCollectionViewController {
         guard segue.identifier == "StoryDetail",
               let pageVC = segue.destination as? StoryPageViewController,
               let cell = sender as? StoryCollectionViewCell,
-              let position = stories.firstIndex(where: { $0.id == cell.storyId }) else { return }
+              let position = stories.firstIndex(where: { $0.id == cell.storyId }) else {
+            assertionFailure("Bad segue to story detail.")
+            return
+        }
         pageVC.stories = stories
         pageVC.position = position
     }

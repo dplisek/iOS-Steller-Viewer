@@ -16,7 +16,7 @@ extension UIColor {
     convenience init(hex: String) {
         guard hex.starts(with: "#"),
               hex.count == 7 else {
-            print("Warning: Incorrect color definition: \(hex)")
+            assertionFailure("Warning: Incorrect color definition: \(hex)")
             self.init(white: 1.0, alpha: 1.0)
             return
         }
