@@ -3,15 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0DAF122556E80E00DA97BB /* StoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DAF112556E80E00DA97BB /* StoryPresenter.swift */; };
 		0FAB3F8D2553068400280F74 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB3F8C2553068400280F74 /* StoryViewController.swift */; };
 		0FAB3F902553088E00280F74 /* StoryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB3F8F2553088E00280F74 /* StoryPageViewController.swift */; };
 		0FB4E8A5255458260019E000 /* StoryNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB4E8A4255458260019E000 /* StoryNavigationViewController.swift */; };
 		0FE0CAB1255978A400AD118D /* StoryPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FE0CAB0255978A400AD118D /* StoryPageViewController.storyboard */; };
 		0FE0CAB42559793800AD118D /* StoryCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FE0CAB32559793800AD118D /* StoryCollectionViewController.storyboard */; };
+		0FE0CAD42559864400AD118D /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0CAD32559864400AD118D /* SwinjectStoryboard+Setup.swift */; };
 		0FF7008425501FF0005F3B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7008325501FF0005F3B26 /* AppDelegate.swift */; };
 		0FF7008625501FF0005F3B26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7008525501FF0005F3B26 /* SceneDelegate.swift */; };
 		0FF7008825501FF0005F3B26 /* StoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF7008725501FF0005F3B26 /* StoryCollectionViewController.swift */; };
@@ -25,14 +27,17 @@
 		0FF700C12550677A005F3B26 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF700C02550677A005F3B26 /* String+Localizable.swift */; };
 		0FF700CA25519EA4005F3B26 /* UIFont+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF700C925519EA4005F3B26 /* UIFont+Styles.swift */; };
 		0FF700CD2551A088005F3B26 /* UIColor+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF700CC2551A088005F3B26 /* UIColor+Styles.swift */; };
+		A5F5E26CA89F633515D87B12 /* Pods_Steller_Viewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B896BB6CAAFD865621F7E240 /* Pods_Steller_Viewer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F0DAF112556E80E00DA97BB /* StoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPresenter.swift; sourceTree = "<group>"; };
 		0FAB3F8C2553068400280F74 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		0FAB3F8F2553088E00280F74 /* StoryPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPageViewController.swift; sourceTree = "<group>"; };
 		0FB4E8A4255458260019E000 /* StoryNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryNavigationViewController.swift; sourceTree = "<group>"; };
 		0FE0CAB0255978A400AD118D /* StoryPageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryPageViewController.storyboard; sourceTree = "<group>"; };
 		0FE0CAB32559793800AD118D /* StoryCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryCollectionViewController.storyboard; sourceTree = "<group>"; };
+		0FE0CAD32559864400AD118D /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
 		0FF7008025501FF0005F3B26 /* Steller Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Steller Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF7008325501FF0005F3B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF7008525501FF0005F3B26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +53,9 @@
 		0FF700C02550677A005F3B26 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 		0FF700C925519EA4005F3B26 /* UIFont+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Styles.swift"; sourceTree = "<group>"; };
 		0FF700CC2551A088005F3B26 /* UIColor+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Styles.swift"; sourceTree = "<group>"; };
+		7582724F17FA4D61F3EDAFF2 /* Pods-Steller Viewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Steller Viewer.debug.xcconfig"; path = "Target Support Files/Pods-Steller Viewer/Pods-Steller Viewer.debug.xcconfig"; sourceTree = "<group>"; };
+		77624B73D5F9FCD999A36CEB /* Pods-Steller Viewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Steller Viewer.release.xcconfig"; path = "Target Support Files/Pods-Steller Viewer/Pods-Steller Viewer.release.xcconfig"; sourceTree = "<group>"; };
+		B896BB6CAAFD865621F7E240 /* Pods_Steller_Viewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Steller_Viewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,17 +63,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F5E26CA89F633515D87B12 /* Pods_Steller_Viewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F0DAF102556E7E000DA97BB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0F0DAF112556E80E00DA97BB /* StoryPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		0FF7007725501FF0005F3B26 = {
 			isa = PBXGroup;
 			children = (
 				0FF7008225501FF0005F3B26 /* Steller Viewer */,
 				0FF7008125501FF0005F3B26 /* Products */,
+				490097A2A4225AC4DE2C0557 /* Pods */,
+				B6C76F1DF0B16D9DD65A7FB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,7 +102,7 @@
 				0FF700A8255032E1005F3B26 /* Extensions */,
 				0FF7009A25502242005F3B26 /* Model */,
 				0FF700A2255023DC005F3B26 /* View */,
-				0FF7009B25502247005F3B26 /* Controller */,
+				0F0DAF102556E7E000DA97BB /* Presenter */,
 				0FF7008325501FF0005F3B26 /* AppDelegate.swift */,
 				0FF7008525501FF0005F3B26 /* SceneDelegate.swift */,
 				0FF7008C25501FF0005F3B26 /* Assets.xcassets */,
@@ -118,6 +137,7 @@
 		0FF700A2255023DC005F3B26 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0FF7009B25502247005F3B26 /* Controller */,
 				0FF700A3255023FD005F3B26 /* StoryCollectionViewCell.swift */,
 			);
 			path = View;
@@ -131,8 +151,26 @@
 				0FF700C02550677A005F3B26 /* String+Localizable.swift */,
 				0FF700C925519EA4005F3B26 /* UIFont+Styles.swift */,
 				0FF700CC2551A088005F3B26 /* UIColor+Styles.swift */,
+				0FE0CAD32559864400AD118D /* SwinjectStoryboard+Setup.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		490097A2A4225AC4DE2C0557 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7582724F17FA4D61F3EDAFF2 /* Pods-Steller Viewer.debug.xcconfig */,
+				77624B73D5F9FCD999A36CEB /* Pods-Steller Viewer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B6C76F1DF0B16D9DD65A7FB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B896BB6CAAFD865621F7E240 /* Pods_Steller_Viewer.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FF7009425501FF0005F3B26 /* Build configuration list for PBXNativeTarget "Steller Viewer" */;
 			buildPhases = (
+				4862F4E09ED6AE7ADF129183 /* [CP] Check Pods Manifest.lock */,
 				0FF7007C25501FF0005F3B26 /* Sources */,
 				0FF7007D25501FF0005F3B26 /* Frameworks */,
 				0FF7007E25501FF0005F3B26 /* Resources */,
+				96E537337BB0B53DEC08C949 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,15 +242,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4862F4E09ED6AE7ADF129183 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Steller Viewer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96E537337BB0B53DEC08C949 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Steller Viewer/Pods-Steller Viewer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Steller Viewer/Pods-Steller Viewer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Steller Viewer/Pods-Steller Viewer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0FF7007C25501FF0005F3B26 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0FF700A4255023FD005F3B26 /* StoryCollectionViewCell.swift in Sources */,
+				0FE0CAD42559864400AD118D /* SwinjectStoryboard+Setup.swift in Sources */,
 				0FAB3F902553088E00280F74 /* StoryPageViewController.swift in Sources */,
 				0FF700B025504E36005F3B26 /* UIAlertController+Common.swift in Sources */,
 				0FF7009E25502257005F3B26 /* StoriesResponse.swift in Sources */,
+				0F0DAF122556E80E00DA97BB /* StoryPresenter.swift in Sources */,
 				0FF700AA25503311005F3B26 /* URLSession+Requests.swift in Sources */,
 				0FF700CD2551A088005F3B26 /* UIColor+Styles.swift in Sources */,
 				0FF7008825501FF0005F3B26 /* StoryCollectionViewController.swift in Sources */,
@@ -363,6 +447,7 @@
 		};
 		0FF7009525501FF0005F3B26 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7582724F17FA4D61F3EDAFF2 /* Pods-Steller Viewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -382,6 +467,7 @@
 		};
 		0FF7009625501FF0005F3B26 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77624B73D5F9FCD999A36CEB /* Pods-Steller Viewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

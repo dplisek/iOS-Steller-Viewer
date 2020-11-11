@@ -17,7 +17,6 @@ struct Likes: Decodable {
 }
 
 struct Story: Decodable {
-    let id: String?
     let cover_src: String?
     let landscape_share_image: String?
     let user: User?

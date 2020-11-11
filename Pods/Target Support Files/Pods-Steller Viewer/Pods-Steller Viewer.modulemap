@@ -1,0 +1,6 @@
+framework module Pods_Steller_Viewer {
+  umbrella header "Pods-Steller Viewer-umbrella.h"
+
+  export *
+  module * { export * }
+}

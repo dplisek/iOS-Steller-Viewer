@@ -11,7 +11,9 @@ class StoryViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var story: Story?
+    var storyPresenter: StoryPresenter!
+
+    var index = 0
     
     private var landscape: Bool? {
         didSet {
@@ -33,12 +35,10 @@ class StoryViewController: UIViewController {
 // MARK: - Private functions
 private extension StoryViewController {
     func updateImage() {
-        guard let landscape = landscape,
-              let urlString = landscape ? story?.landscape_share_image : story?.cover_src,
-              let url = URL(string: urlString) else { return }
+        guard let landscape = landscape else { return }
         activityIndicator.startAnimating()
         imageView.isHidden = true
-        URLSession.shared.getAsData(url: url) { [weak self] (data, error) in
+        storyPresenter.image(for: index, landscape: landscape) { [weak self] (data) in
             guard landscape == self?.landscape else { return }
             self?.activityIndicator.stopAnimating()
             guard let data = data else { return }

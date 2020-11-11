@@ -8,7 +8,8 @@
 import UIKit
 
 class StoryPageViewController: UIPageViewController {
-    var stories = [Story]()
+    var storyPresenter: StoryPresenter!
+
     var position = 0
     
     override var prefersStatusBarHidden: Bool {
@@ -29,17 +30,13 @@ class StoryPageViewController: UIPageViewController {
 // MARK: - UIPageViewControllerDataSource
 extension StoryPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard
-            let currentVC = viewController as? StoryViewController,
-            let position = stories.firstIndex(where: { $0.id == currentVC.story?.id }) else { return nil }
-        return instantiateViewController(position: position - 1)
+        guard let currentVC = viewController as? StoryViewController else { return nil }
+        return instantiateViewController(position: currentVC.index - 1)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard
-            let currentVC = viewController as? StoryViewController,
-            let position = stories.firstIndex(where: { $0.id == currentVC.story?.id }) else { return nil }
-        return instantiateViewController(position: position + 1)
+        guard let currentVC = viewController as? StoryViewController else { return nil }
+        return instantiateViewController(position: currentVC.index + 1)
     }
 }
 
@@ -48,8 +45,8 @@ private extension StoryPageViewController {
     func instantiateViewController(position: Int) -> StoryViewController? {
         guard let storyVC = storyboard?.instantiateViewController(withIdentifier: "StoryViewController") as? StoryViewController,
               position >= 0,
-              position < stories.count else { return nil }
-        storyVC.story = stories[position]
+              position < storyPresenter.storyCount else { return nil }
+        storyVC.index = position
         return storyVC
     }
 }

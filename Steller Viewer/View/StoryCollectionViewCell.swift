@@ -23,5 +23,5 @@ class StoryCollectionViewCell: UICollectionViewCell {
     }
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var storyId: String?
+    var index: Int?
 }

@@ -13,46 +13,47 @@ class StoryCollectionViewController: UICollectionViewController {
     private static let columnCount = 2
     private static let cellAspectRatio = 1.87
     
-    private var stories = [Story]()
-    private var imageCache = [URL: UIImage]()
+    var storyPresenter: StoryPresenter!
     
+    private var imageCache = [Int: UIImage]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "storyCollection.title".localized
-        fetchStories()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        imageCache.removeAll()
+        activityIndicator.startAnimating()
+        storyPresenter.fetchStories() { [weak self] success, error in
+            self?.activityIndicator.stopAnimating()
+            guard success else {
+                UIAlertController.presentSimpleAlert(on: self, title: "general.error".localized, message: error?.localizedDescription ?? "storyCollection.error".localized)
+                return
+            }
+            self?.collectionView.reloadData()
+        }
     }
 }
 
 // MARK: - UICollectionViewDataSource
 extension StoryCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        stories.count
+        storyPresenter.storyCount
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let story = stories[indexPath.row]
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as? StoryCollectionViewCell,
-              let storyId = story.id else {
+        let story = storyPresenter.story(at: indexPath.row)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as? StoryCollectionViewCell else {
             assertionFailure("Missing cell definition.")
             return UICollectionViewCell()
         }
-        cell.storyId = storyId
-        cell.nameLabel.text = story.user?.display_name
-        cell.likesLabel.text = story.likes?.count.map { "❤️ \($0)" }
+        cell.index = indexPath.row
+        cell.nameLabel.text = story.username
+        cell.likesLabel.text = story.likes.map { "❤️ \($0)" }
         cell.imageView.isHidden = true
-        if let url = story.cover_src.flatMap({ URL(string: $0) }) {
-            cell.activityIndicator.startAnimating()
-            cacheImage(for: url) { image in
-                guard cell.storyId == storyId else { return }
-                cell.imageView.image = image
-                cell.imageView.isHidden = false
-                cell.activityIndicator.stopAnimating()
-            }
+        cell.activityIndicator.startAnimating()
+        cacheImage(for: indexPath.row) { image in
+            guard cell.index == indexPath.row else { return }
+            cell.imageView.image = image
+            cell.imageView.isHidden = false
+            cell.activityIndicator.stopAnimating()
         }
         return cell
     }
@@ -79,42 +80,27 @@ extension StoryCollectionViewController {
         guard segue.identifier == "StoryDetail",
               let pageVC = segue.destination as? StoryPageViewController,
               let cell = sender as? StoryCollectionViewCell,
-              let position = stories.firstIndex(where: { $0.id == cell.storyId }) else {
-            assertionFailure("Bad segue to story detail.")
+              let position = cell.index else {
             return
         }
-        pageVC.stories = stories
         pageVC.position = position
     }
 }
 
 // MARK: - Private functions
 private extension StoryCollectionViewController {
-    func fetchStories() {
-        activityIndicator.startAnimating()
-        URLSession.shared.get(StoriesResponse.self, url: URLSession.Endpoints.stories) { [weak self] (response, error) in
-            self?.activityIndicator.stopAnimating()
-            guard let response = response else {
-                UIAlertController.presentSimpleAlert(on: self, title: "general.error".localized, message: error?.localizedDescription ?? "storyCollection.error".localized)
-                return
-            }
-            self?.stories = response.data ?? []
-            self?.collectionView.reloadData()
-        }
-    }
-    
-    func cacheImage(for url: URL, completion: @escaping (UIImage?) -> Void) {
-        if let image = imageCache[url] {
+    func cacheImage(for index: Int, completion: @escaping (UIImage?) -> Void) {
+        if let image = imageCache[index] {
             completion(image)
             return
         }
-        URLSession.shared.getAsData(url: url) { [weak self] (data, error) in
+        storyPresenter.image(for: index, landscape: false) { [weak self] (data) in
             guard let data = data,
                   let image = UIImage(data: data) else {
                 completion(nil)
                 return
             }
-            self?.imageCache[url] = image
+            self?.imageCache[index] = image
             completion(image)
         }
     }
