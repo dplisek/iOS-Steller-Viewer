@@ -7,3 +7,4 @@ This is the base implementation, which uses the classic iOS MVC pattern.
 ## Other architecture versions
 
 For the MVP version, check the "MVP" branch.
+For the MVVM version with RxSwift, check the "MVVM-RxSwift" branch.
