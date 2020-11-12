@@ -1,9 +1,11 @@
-# Steller Viewer - MVC architecture
+# Steller Viewer - MVP architecture
 
 Steller Viewer is a demo application which shows stories from steller.co.
 
-This is the base implementation, which uses the classic iOS MVC pattern.
+This is the MVP implementation, which is edited from the original classic MVC version.
 
 ## Other architecture versions
 
-For the MVP version, check the "MVP" branch.
+For the MVC version, check the "MVC" branch.
+
+For the MVVM version with RxSwift, check the "MVVM-RxSwift" branch.
