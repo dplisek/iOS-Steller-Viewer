@@ -10,17 +10,17 @@ import SwinjectStoryboard
 
 extension SwinjectStoryboard {
     public static func setup() {
-        setupPresenters()
+        setupViewModels()
         setupViewControllers()
     }
 }
 
 // MARK: - Private functions
 private extension SwinjectStoryboard {
-    private static let storyPresenterImpl = StoriesViewModelImpl()
+    private static let storiesViewModelImpl = StoriesViewModelImpl()
     
-    class func setupPresenters() {
-        defaultContainer.register(StoriesViewModel.self) { _ in storyPresenterImpl }
+    class func setupViewModels() {
+        defaultContainer.register(StoriesViewModel.self) { _ in storiesViewModelImpl }
     }
 
     class func setupViewControllers() {

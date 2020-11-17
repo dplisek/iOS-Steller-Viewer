@@ -70,12 +70,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F0DAF102556E7E000DA97BB /* Presenter */ = {
+		0F0DAF102556E7E000DA97BB /* View Model */ = {
 			isa = PBXGroup;
 			children = (
 				0F0DAF112556E80E00DA97BB /* StoriesViewModel.swift */,
 			);
-			path = Presenter;
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		0FF7007725501FF0005F3B26 = {
@@ -102,7 +102,7 @@
 				0FF700A8255032E1005F3B26 /* Extensions */,
 				0FF7009A25502242005F3B26 /* Model */,
 				0FF700A2255023DC005F3B26 /* View */,
-				0F0DAF102556E7E000DA97BB /* Presenter */,
+				0F0DAF102556E7E000DA97BB /* View Model */,
 				0FF7008325501FF0005F3B26 /* AppDelegate.swift */,
 				0FF7008525501FF0005F3B26 /* SceneDelegate.swift */,
 				0FF7008C25501FF0005F3B26 /* Assets.xcassets */,
