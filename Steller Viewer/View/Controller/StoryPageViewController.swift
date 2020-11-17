@@ -15,7 +15,7 @@ class StoryPageViewController: UIPageViewController {
 
     private let disposeBag = DisposeBag()
     private var totalCount = 0
-    
+
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -45,7 +45,7 @@ extension StoryPageViewController: UIPageViewControllerDataSource {
         guard let currentVC = viewController as? StoryViewController else { return nil }
         return instantiateViewController(position: currentVC.index - 1)
     }
-    
+
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let currentVC = viewController as? StoryViewController else { return nil }
         return instantiateViewController(position: currentVC.index + 1)

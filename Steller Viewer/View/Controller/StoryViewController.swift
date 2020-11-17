@@ -11,13 +11,13 @@ import RxSwift
 class StoryViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+
     var storiesViewModel: StoriesViewModel!
 
     var index = 0
-    
+
     private var disposeBag = DisposeBag()
-    
+
     private var landscape: Bool? {
         didSet {
             guard oldValue != landscape else { return }

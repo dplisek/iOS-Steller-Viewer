@@ -23,10 +23,10 @@ class StoryCollectionViewCell: UICollectionViewCell {
         }
     }
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+
     var index: Int?
     var disposeBag = DisposeBag()
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()

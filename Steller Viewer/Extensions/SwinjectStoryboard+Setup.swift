@@ -18,13 +18,13 @@ extension SwinjectStoryboard {
 // MARK: - Private functions
 private extension SwinjectStoryboard {
     private static let storiesViewModelImpl = StoriesViewModelImpl()
-    
+
     class func setupViewModels() {
         defaultContainer.register(StoriesViewModel.self) { _ in storiesViewModelImpl }
     }
 
     class func setupViewControllers() {
-        defaultContainer.storyboardInitCompleted(StoryNavigationViewController.self) { (resolver, controller) in
+        defaultContainer.storyboardInitCompleted(StoryNavigationViewController.self) { (_, _) in
         }
         defaultContainer.storyboardInitCompleted(StoryCollectionViewController.self) { (resolver, controller) in
             controller.storiesViewModel = resolver.resolve(StoriesViewModel.self)

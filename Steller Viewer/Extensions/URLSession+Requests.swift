@@ -13,7 +13,7 @@ extension URLSession {
     struct Endpoints {
         static let stories = URL(string: "https://api.steller.co/v1/users/76794126980351029/stories")!
     }
-    
+
     func get<T: Decodable>(_ type: T.Type, url: URL) -> Observable<T> {
         rx.response(request: URLRequest(url: url))
             .map { (response, data) in
@@ -23,7 +23,7 @@ extension URLSession {
                 return try JSONDecoder().decode(T.self, from: data)
             }
     }
-    
+
     func getAsData(url: URL) -> Observable<Data> {
         rx.response(request: URLRequest(url: url))
             .map { (response, data) in

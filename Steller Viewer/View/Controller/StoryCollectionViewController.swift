@@ -11,12 +11,12 @@ import RxSwift
 class StoryCollectionViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+
     private static let columnCount = 2
     private static let cellAspectRatio = 1.87
-    
+
     var storiesViewModel: StoriesViewModel!
-    
+
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -43,7 +43,7 @@ class StoryCollectionViewController: UIViewController {
             .disposed(by: disposeBag)
         storiesViewModel.refresh()
     }
-    
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         collectionView.collectionViewLayout.invalidateLayout()
