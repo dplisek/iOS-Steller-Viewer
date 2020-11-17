@@ -1,4 +1,4 @@
-# Steller Viewer - MVP architecture
+# Steller Viewer - MVVM architecture - reactive
 
 Steller Viewer is a demo application which shows stories from steller.co.
 
