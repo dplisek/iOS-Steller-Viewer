@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import RxSwift
 
 class StoryPageViewController: UIPageViewController {
-    var storyPresenter: StoryPresenter!
+    var storiesViewModel: StoriesViewModel!
 
     var position = 0
+
+    private let disposeBag = DisposeBag()
+    private var totalCount = 0
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -18,11 +22,19 @@ class StoryPageViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setViewControllers(
-            [instantiateViewController(position: position) ?? UIViewController()],
-            direction: .forward,
-            animated: false
-        )
+        storiesViewModel.stories
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] stories in
+                guard let self = self else { return }
+                self.totalCount = stories.count
+                guard self.viewControllers?.isEmpty ?? true else { return }
+                self.setViewControllers(
+                    [self.instantiateViewController(position: self.position) ?? UIViewController()],
+                    direction: .forward,
+                    animated: false
+                )
+            })
+            .disposed(by: disposeBag)
         dataSource = self
     }
 }
@@ -45,7 +57,7 @@ private extension StoryPageViewController {
     func instantiateViewController(position: Int) -> StoryViewController? {
         guard let storyVC = storyboard?.instantiateViewController(withIdentifier: "StoryViewController") as? StoryViewController,
               position >= 0,
-              position < storyPresenter.storyCount else { return nil }
+              position < totalCount else { return nil }
         storyVC.index = position
         return storyVC
     }

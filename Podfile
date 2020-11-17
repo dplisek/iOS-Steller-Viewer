@@ -7,4 +7,5 @@ target 'Steller Viewer' do
 
   # Pods for Steller Viewer
   pod 'SwinjectStoryboard', '~> 2.2.0'
+  pod 'RxCocoa', '~> 5.1.1'
 end

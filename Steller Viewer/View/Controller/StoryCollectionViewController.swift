@@ -1,61 +1,53 @@
 //
-//  ViewController.swift
+//  StoryCollectionViewController.swift
 //  Steller Viewer MVC
 //
 //  Created by plech on 02/11/2020.
 //
 
 import UIKit
+import RxSwift
 
-class StoryCollectionViewController: UICollectionViewController {
+class StoryCollectionViewController: UIViewController {
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private static let columnCount = 2
     private static let cellAspectRatio = 1.87
     
-    var storyPresenter: StoryPresenter!
+    var storiesViewModel: StoriesViewModel!
     
     private var imageCache = [Int: UIImage]()
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "storyCollection.title".localized
-        activityIndicator.startAnimating()
-        storyPresenter.fetchStories() { [weak self] success, error in
-            self?.activityIndicator.stopAnimating()
-            guard success else {
-                UIAlertController.presentSimpleAlert(on: self, title: "general.error".localized, message: error?.localizedDescription ?? "storyCollection.error".localized)
-                return
+        storiesViewModel.stories.asDriver(onErrorJustReturn: [StoryViewModel]())
+            .drive(collectionView.rx.items(cellIdentifier: "StoryCollectionViewCell")) { row, model, cell in
+                guard let cell = cell as? StoryCollectionViewCell else {
+                    assertionFailure("Bad cell definition.")
+                    return
+                }
+                cell.index = row
+                model.username.asDriver(onErrorJustReturn: nil)
+                    .drive(cell.nameLabel.rx.text)
+                    .disposed(by: cell.disposeBag)
+                model.likes.asDriver(onErrorJustReturn: nil)
+                    .map { likes in likes.map { "❤️ \($0)" } }
+                    .drive(cell.likesLabel.rx.text)
+                    .disposed(by: cell.disposeBag)
+                model.image.asDriver(onErrorJustReturn: nil)
+                    .drive(cell.imageView.rx.image)
+                    .disposed(by: cell.disposeBag)
             }
-            self?.collectionView.reloadData()
-        }
-    }
-}
-
-// MARK: - UICollectionViewDataSource
-extension StoryCollectionViewController {
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        storyPresenter.storyCount
+            .disposed(by: disposeBag)
+        storiesViewModel.refresh()
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let story = storyPresenter.story(at: indexPath.row)
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as? StoryCollectionViewCell else {
-            assertionFailure("Missing cell definition.")
-            return UICollectionViewCell()
-        }
-        cell.index = indexPath.row
-        cell.nameLabel.text = story.username
-        cell.likesLabel.text = story.likes.map { "❤️ \($0)" }
-        cell.imageView.isHidden = true
-        cell.activityIndicator.startAnimating()
-        cacheImage(for: indexPath.row) { image in
-            guard cell.index == indexPath.row else { return }
-            cell.imageView.image = image
-            cell.imageView.isHidden = false
-            cell.activityIndicator.stopAnimating()
-        }
-        return cell
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 }
 
@@ -84,24 +76,5 @@ extension StoryCollectionViewController {
             return
         }
         pageVC.position = position
-    }
-}
-
-// MARK: - Private functions
-private extension StoryCollectionViewController {
-    func cacheImage(for index: Int, completion: @escaping (UIImage?) -> Void) {
-        if let image = imageCache[index] {
-            completion(image)
-            return
-        }
-        storyPresenter.image(for: index, landscape: false) { [weak self] (data) in
-            guard let data = data,
-                  let image = UIImage(data: data) else {
-                completion(nil)
-                return
-            }
-            self?.imageCache[index] = image
-            completion(image)
-        }
     }
 }

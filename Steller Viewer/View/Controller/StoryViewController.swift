@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import RxSwift
 
 class StoryViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var storyPresenter: StoryPresenter!
+    var storiesViewModel: StoriesViewModel!
 
     var index = 0
+    
+    private var disposeBag = DisposeBag()
     
     private var landscape: Bool? {
         didSet {
@@ -35,15 +38,12 @@ class StoryViewController: UIViewController {
 // MARK: - Private functions
 private extension StoryViewController {
     func updateImage() {
-        guard let landscape = landscape else { return }
-        activityIndicator.startAnimating()
-        imageView.isHidden = true
-        storyPresenter.image(for: index, landscape: landscape) { [weak self] (data) in
-            guard landscape == self?.landscape else { return }
-            self?.activityIndicator.stopAnimating()
-            guard let data = data else { return }
-            self?.imageView.image = UIImage(data: data)
-            self?.imageView.isHidden = false
-        }
+        disposeBag = DisposeBag()
+        storiesViewModel.stories
+            .map { [weak self] stories in stories[self?.index ?? 0] }
+            .flatMap { [weak self] story in (self?.landscape ?? false) ? story.landscapeImage : story.image }
+            .asDriver(onErrorJustReturn: nil)
+            .drive(imageView.rx.image)
+            .disposed(by: disposeBag)
     }
 }

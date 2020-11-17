@@ -6,38 +6,31 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 extension URLSession {
     struct Endpoints {
         static let stories = URL(string: "https://api.steller.co/v1/users/76794126980351029/stories")!
     }
     
-    func get<T: Decodable>(_ type: T.Type, url: URL, completion: @escaping (T?, Error?) -> Void) {
-        dataTask(with: url) { (data, response, error) in
-            DispatchQueue.main.async {
-                guard let response = response as? HTTPURLResponse,
-                      200..<400 ~= response.statusCode,
-                      let data = data,
-                      let result = try? JSONDecoder().decode(T.self, from: data) else {
-                    completion(nil, error)
-                    return
+    func get<T: Decodable>(_ type: T.Type, url: URL) -> Observable<T> {
+        rx.response(request: URLRequest(url: url))
+            .map { (response, data) in
+                guard 200..<300 ~= response.statusCode else {
+                    throw RxCocoaURLError.httpRequestFailed(response: response, data: data)
                 }
-                completion(result, nil)
+                return try JSONDecoder().decode(T.self, from: data)
             }
-        }.resume()
     }
     
-    func getAsData(url: URL, completion: @escaping (Data?, Error?) -> Void) {
-        dataTask(with: url) { (data, response, error) in
-            DispatchQueue.main.async {
-                guard let response = response as? HTTPURLResponse,
-                      200..<400 ~= response.statusCode,
-                      let data = data else {
-                    completion(nil, error)
-                    return
+    func getAsData(url: URL) -> Observable<Data> {
+        rx.response(request: URLRequest(url: url))
+            .map { (response, data) in
+                guard 200..<300 ~= response.statusCode else {
+                    throw RxCocoaURLError.httpRequestFailed(response: response, data: data)
                 }
-                completion(data, nil)
+                return data
             }
-        }.resume()
     }
 }
