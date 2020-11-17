@@ -17,7 +17,6 @@ class StoryCollectionViewController: UIViewController {
     
     var storiesViewModel: StoriesViewModel!
     
-    private var imageCache = [Int: UIImage]()
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
